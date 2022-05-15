@@ -6,21 +6,11 @@ import (
 	"os"
 )
 
-var nums = []int{}
-
 func main() {
-	filetointarray()
-	fmt.Println(nums)
-	inttochars()
+	filetochar()
 }
 
-func inttochars() {
-	for i := range nums {
-		fmt.Printf("%c", nums[i])
-	}
-}
-
-func filetointarray() {
+func filetochar() {
 	filename := os.Args[1]
 	file, err := os.Open(filename)
 	if err != nil {
@@ -37,6 +27,6 @@ func filetointarray() {
 			fmt.Println(err)
 			os.Exit(1)
 		}
-		nums = append(nums, line)
+		fmt.Print(string(line))
 	}
 }
